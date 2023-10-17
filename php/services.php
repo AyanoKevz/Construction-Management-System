@@ -66,7 +66,7 @@
 						<article>
 							<a href="#" class="image"><img src="../assets/images/construction.jpg" alt="" /></a>
 							<h3 class="major">Construction Industry</h3>
-							<p>Debris from all the construction activity will only occupy precious space, which is why it is best that it be removed right away. Furthermore, construction materials such as steel bars and scaffolding can also be delivered by R.O.Salas Construction</p>
+							<p>Debris from all the construction activity will only occupy precious space, which is why it is best that it be removed right away. Furthermore, construction materials such as steel bars and scaffolding can also be delivered by our company.</p>
 						</article>
 					</section>
 
