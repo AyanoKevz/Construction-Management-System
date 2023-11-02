@@ -1,3 +1,8 @@
+<?php
+
+include 'request.php'
+?>
+
 <!DOCTYPE HTML>
 
 <html>
@@ -6,7 +11,8 @@
 	<title>Services</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="../assets/css/main.css" />
+	<link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../assets/css/style.css" />
 	<noscript>
 		<link rel="stylesheet" href="../assets/css/noscript.css" />
 	</noscript>
@@ -19,33 +25,45 @@
 	<div id="page-wrapper">
 
 		<!-- Header -->
-		<header id="header">
-			<h1><a href="../index.php">R.O.SALAS CONSTRUCTION</a></h1>
-			<nav>
-				<a href="#menu">Menu</a>
+		<header id="header" class="alt">
+			<nav class="navbar">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="index.php">
+						<img src="../assets/images/ros.jpg" alt="R.O.Salas Construction" width="70" height="50">
+					</a>
+					<ul class="nav nav-underline">
+						<li class="nav-item">
+							<a class="nav-link" href="../index.php">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="services.php">Services</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="about.php">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#footer">Contact Us</a>
+						</li>
+					</ul>
+				</div>
 			</nav>
 		</header>
-
-		<!-- Menu -->
-		<nav id="menu">
-			<div class="inner">
-				<h2>Menu</h2>
-				<ul class="links">
-					<li><a href="../index.php">Home</a></li>
-					<li><a href="services.php">Services</a></li>
-					<li><a href="about.php">About</a></li>
-					<li><a href="#footer">Connect Us</a></li>
-				</ul>
-				<a href="#" class="close">Close</a>
-			</div>
-		</nav>
 
 		<!-- Wrapper -->
 		<section id="wrapper">
 			<header>
+				<?php
+				if ($success) {
+					echo '<label class="text-success success" id="alert">' . $success . '</label>';
+				}
+				if ($req_error) {
+					echo '<label class="text-danger error" id="alert">' . $req_error . '</label>';
+				}
+				?>
 				<div class="inner">
+
 					<h2>Services</h2>
-					<p>We offer a Hauling service for Manufacturing and Construction Debris.</p>
+					<p>We offer a construction debris hauling service.</p>
 				</div>
 			</header>
 
@@ -53,7 +71,7 @@
 			<div class="wrapper">
 				<div class="inner">
 
-					<h3 class="major">What is construction hauling?</h3>
+					<h2 class="major">What is construction hauling?</h2>
 					<p> Construction hauling refers to the transportation of materials, equipment, and waste to and from construction sites. It is an essential part of the
 						construction industry, ensuring that the necessary resources and materials are delivered to the site and that waste and debris are removed efficiently. </p>
 
@@ -78,25 +96,25 @@
 		<!-- Footer -->
 		<section id="footer">
 			<div class="inner">
-				<h2 class="mtitle">Get in touch</h2>
-				<h3>Request an appointment</h3>
+				<h2 class="mtitle">Contact Us</h2>
+				<h3>Drop us a message</h3>
 				<p>
 					We are open to discussion. For your concerns and inquiries, kindly send us a message. Here at R.O. Salas Construction,
 					we value our clients. We will reach out to you and arrange a schedule for the appointment at the contacts that you provided below.
 				</p>
-				<form method="post" action="#">
+				<form method="post" action="#" onsubmit="clearTextArea()">
 					<div class="fields">
 						<div class="field">
 							<label for="name">Name</label>
-							<input type="text" name="name" id="name">
+							<input type="text" name="name" id="name" autocomplete="off" required="on">
 						</div>
 						<div class="field">
 							<label for="email">Contact Number</label>
-							<input type="text" name="number" id="number">
+							<input type="text" name="number" id="number" autocomplete="off" required="on" placeholder="<?php echo $contact_error; ?>">
 						</div>
 						<div class="field">
 							<label for="email">Email</label>
-							<input type="email" name="email" id="email">
+							<input type="email" name="email" id="email" autocomplete="off" required="on" placeholder="<?php echo $email_error; ?>">
 						</div>
 						<div class="field">
 							<label for="message">Message</label>
@@ -114,7 +132,7 @@
 						1106, Quezon City
 					</li>
 					<li class="icon solid fa-phone">(+63) 923 123 6285</li>
-					<li class="icon solid fa-envelope"><a href="#">rosalas08@gmail.com</a></li>
+					<li class="icon solid fa-envelope"><a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSMTSGfrKRgpRdCcRcPdrpWdqZGhjfdWQwTbnfQbrKxhWLwmTfHrCfJcWRhVvpGXWGmjPSNv">rosalasconstruction00@gmail.com</a></li>
 					<li class="icon brands fa-facebook-f"><a href="https://www.facebook.com/rosalasconstruction">facebook/R.O.Salas Construction</a></li>
 					<li class="icon brands fa-instagram"><a href="#">instagram.com/R.O.Salas Construction</a></li>
 				</ul>
@@ -127,12 +145,26 @@
 	</div>
 
 	<!-- Scripts -->
+
+	<script>
+		function clearTextArea() {
+
+			var textArea = document.getElementById("message");
+
+			textArea.reset();
+		}
+
+		setTimeout(function() {
+			var alert = document.getElementById('alert');
+			if (alert) {
+				alert.remove();
+			}
+		}, 3500);
+	</script>
+
+	<script src="../assets/js/bootstrap.bundle.min.js"></script>
 	<script src="../assets/js/jquery.min.js"></script>
-	<script src="../assets/js/jquery.scrollex.min.js"></script>
-	<script src="../assets/js/browser.min.js"></script>
 	<script src="../assets/js/breakpoints.min.js"></script>
-	<script src="../assets/js/util.js"></script>
-	<script src="../assets/js/main.js"></script>
 
 </body>
 

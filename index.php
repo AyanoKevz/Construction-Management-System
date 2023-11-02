@@ -1,16 +1,23 @@
+<?php
+
+include 'php/request.php'
+?>
+
 <!DOCTYPE HTML>
 
 <html>
 
 <head>
-	<title>R.O.SALAS CONSTRUCTION</title>
+	<title>R.O.Salas Construction</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-	<link rel="stylesheet" href="assets/css/main.css" />
+	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<noscript>
 		<link rel="stylesheet" href="assets/css/noscript.css" />
 	</noscript>
 	<link rel="shortcut icon" href="assets/images/ros-icon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="assets/css/style.css" />
+
 </head>
 
 <body class="is-preload">
@@ -20,28 +27,40 @@
 
 		<!-- Header -->
 		<header id="header" class="alt">
-			<h1><a href="index.html">R.O.SALAS CONSTRUCTION</a></h1>
-			<nav>
-				<a href="#menu">Menu</a>
+
+			<nav class="navbar">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="index.php">
+						<img src="assets/images/ros.jpg" alt="R.O.Salas Construction" width="70" height="50">
+					</a>
+					<ul class="nav nav-underline">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="index.php">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="php/services.php">Services</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="php/about.php">About</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#footer">Contact Us</a>
+						</li>
+					</ul>
+				</div>
 			</nav>
 		</header>
 
-		<!-- Menu -->
-		<nav id="menu">
-			<div class="inner">
-				<h2>Menu</h2>
-				<ul class="links">
-					<li><a href="index.php">Home</a></li>
-					<li><a href="php/services.php">Services</a></li>
-					<li><a href="php/about.php">About</a></li>
-					<li><a href="#footer">Connect Us</a></li>
-				</ul>
-				<a href="#" class="close">Close</a>
-			</div>
-		</nav>
-
 		<!-- Banner -->
 		<section id="banner">
+			<?php
+			if ($success) {
+				echo '<label class="text-success success" id="alert">' . $success . '</label>';
+			}
+			if ($req_error) {
+				echo '<label class="text-danger error" id="alert">' . $req_error . '</label>';
+			}
+			?>
 			<div class="inner">
 				<div class="logo">
 					<img src="assets/images/ros.jpg" alt="">
@@ -75,7 +94,6 @@
 						<h2 class="major">VISION</h2>
 						<p>To continuously innovate, adapt to evolving technologies,
 							while maintaining the highest ethical standards and serving as a model of excellence for the industry.
-
 						</p>
 					</div>
 				</div>
@@ -95,13 +113,13 @@
 
 						</article>
 						<article>
-							<a href="#" class="image"><img src="assets/images/competitve.gif" alt="" /></a>
+							<a href="#" class="image"><img src="assets/images/competitive.gif" alt="" /></a>
 							<h3 class="major">Competitiveness</h3>
 							<p>Our company competitiveness shines through as they provide timely, reliable, and cost-effective hauling solutions.</p>
 
 						</article>
 						<article>
-							<a href="#" class="image"><img src="assets/images/qulity.gif" alt="" /></a>
+							<a href="#" class="image"><img src="assets/images/quality.gif" alt="" /></a>
 							<h3 class="major">Highest Quality</h3>
 							<p>Their unwavering dedication to excellence ensures that every project is executed with precision, craftsmanship, and an uncompromising commitment to the finest standards.</p>
 
@@ -121,13 +139,13 @@
 		<!-- Footer -->
 		<section id="footer">
 			<div class="inner">
-				<h2 class="mtitle">Get in touch</h2>
-				<h3>Request an appointment</h3>
+				<h2 class="mtitle">Contact Us</h2>
+				<h3>Drop us a message</h3>
 				<p>
 					We are open to discussion. For your concerns and inquiries, kindly send us a message. Here at R.O. Salas Construction,
 					we value our clients. We will reach out to you and arrange a schedule for the appointment at the contacts that you provided below.
 				</p>
-				<form method="post" action="#">
+				<form method="post" action="#" onsubmit="clearTextArea()">
 					<div class="fields">
 						<div class="field">
 							<label for="name">Name</label>
@@ -135,11 +153,11 @@
 						</div>
 						<div class="field">
 							<label for="email">Contact Number</label>
-							<input type="text" name="number" id="number" autocomplete="off" required="on">
+							<input type="text" name="number" id="number" autocomplete="off" required="on" placeholder="<?php echo $contact_error; ?>">
 						</div>
 						<div class="field">
 							<label for="email">Email</label>
-							<input type="email" name="email" id="email" autocomplete="off" required="on">
+							<input type="email" name="email" id="email" autocomplete="off" required="on" placeholder="<?php echo $email_error; ?>">
 						</div>
 						<div class="field">
 							<label for="message">Message</label>
@@ -147,7 +165,7 @@
 						</div>
 					</div>
 					<ul class="actions">
-						<li><input type="submit" value="Send Message" name="send" /></li>
+						<li><input type="submit" value="Send Message" name="send" id="liveAlertBtn" /></li>
 					</ul>
 				</form>
 				<ul class="contact">
@@ -157,7 +175,7 @@
 						1106, Quezon City
 					</li>
 					<li class="icon solid fa-phone">(+63) 923 123 6285</li>
-					<li class="icon solid fa-envelope"><a href="#">rosalas08@gmail.com</a></li>
+					<li class="icon solid fa-envelope"><a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSMTSGfrKRgpRdCcRcPdrpWdqZGhjfdWQwTbnfQbrKxhWLwmTfHrCfJcWRhVvpGXWGmjPSNv">rosalasconstruction00@gmail.com</a></li>
 					<li class="icon brands fa-facebook-f"><a href="https://www.facebook.com/rosalasconstruction">facebook/R.O.Salas Construction</a></li>
 					<li class="icon brands fa-instagram"><a href="#">instagram.com/R.O.Salas Construction</a></li>
 				</ul>
@@ -170,11 +188,26 @@
 	</div>
 
 	<!-- Scripts -->
+
+	<script>
+		function clearTextArea() {
+
+			var textArea = document.getElementById("message");
+
+			textArea.reset();
+		}
+
+		setTimeout(function() {
+			var alert = document.getElementById('alert');
+			if (alert) {
+				alert.remove();
+			}
+		}, 3500);
+	</script>
+
+	<script src="assets/js/bootstrap.bundle.min.js"></script>
 	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery.scrollex.min.js"></script>
-	<script src="assets/js/browser.min.js"></script>
 	<script src="assets/js/breakpoints.min.js"></script>
-	<script src="assets/js/util.js"></script>
 	<script src="assets/js/main.js"></script>
 
 </body>
