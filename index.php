@@ -66,7 +66,7 @@ include 'php/request.php'
 					<img src="assets/images/ros.jpg" alt="">
 				</div>
 				<h2>R.O.SALAS CONSTRUCTION</h2>
-				<p>OFFERING CONSTRUCTION HAULING <a href="php/services.php">SERVICES</a></p>
+				<p>OFFERING CONSTRUCTION HAULINGss <a href="php/services.php">SERVICES</a></p>
 			</div>
 		</section>
 
