@@ -139,7 +139,7 @@ include 'php/request.php'
 		<!-- Footer -->
 		<section id="footer">
 			<div class="inner">
-				<h2 class="mtitle">Contact Us</h2>
+				<h2 class="mtitle">Connect with us</h2>
 				<h3>Drop us a message</h3>
 				<p>
 					We are open to discussion. For your concerns and inquiries, kindly send us a message. Here at R.O. Salas Construction,
