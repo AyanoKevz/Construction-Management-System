@@ -1,16 +1,7 @@
 <?php
-session_start();
-
-include 'db_connection.php';
-include 'login.php';
-
-if (!isset($_SESSION["ID"])) {
-    header("location: ../admin.php");
-    exit();
-}
-
 
 $total = " ";
+include 'db_connection.php';
 ?>
 
 <!DOCTYPE html>
@@ -23,7 +14,8 @@ $total = " ";
     <title>Admin</title>
     <link rel="shortcut icon" href="../assets/images/ros-icon.ico" type="image/x-icon">
     <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-    <link href="../assets/css/dashboard.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simple-datatables@7.3.0/dist/style.min.css">
+    <link href="../assets/css/emplist.css" rel="stylesheet">
     <script src="../assets/js/all.js"></script>
     <script src="../assets/js/date.js"></script>
 
@@ -53,7 +45,7 @@ $total = " ";
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Admin Menu</div>
-                        <a class="nav-link active" href="dashboard.php">
+                        <a class="nav-link" href="dashboard.php">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
@@ -72,14 +64,14 @@ $total = " ";
                             <div class="sb-nav-link-icon"><i class="fa fa-file-contract"></i></div>
                             Contract Project
                         </a>
-                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#team" aria-expanded="false" aria-controls="collapseLayouts">
+                        <a class="nav-link collapsed active" href="#" data-bs-toggle="collapse" data-bs-target="#team" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-people-group"></i></div>
                             Company Team
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="team" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="emplist.php">Employee List</a>
+                                <a class="nav-link active" href="emplist.php">Employee List</a>
                                 <a class="nav-link" href="#">Project Team </a>
                             </nav>
                         </div>
@@ -95,26 +87,10 @@ $total = " ";
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <ol class="breadcrumb mb-4">
+                    <ol class="breadcrumb mb-1">
                         <li class="breadcrumb-item active"></li>
                     </ol>
-                    <h1 class="mt-3 mb-4">Dashboard</h1>
-                    <?php
-                    $query = "SELECT COUNT(*) FROM `req_appoint`";
-                    $stmt = mysqli_prepare($conn, $query);
-                    mysqli_stmt_execute($stmt);
-                    mysqli_stmt_bind_result($stmt, $inquries);
-                    mysqli_stmt_fetch($stmt);
-                    mysqli_stmt_close($stmt);
-
-                    $query = "SELECT COUNT(*) FROM `schedule`";
-                    $stmt = mysqli_prepare($conn, $query);
-                    mysqli_stmt_execute($stmt);
-                    mysqli_stmt_bind_result($stmt, $schedule);
-                    mysqli_stmt_fetch($stmt);
-                    mysqli_stmt_close($stmt);
-
-                    ?>
+                    <h1 class="mt-2 mb-4">Employee List</h1>
 
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
@@ -126,7 +102,7 @@ $total = " ";
                                     <img src="../assets/images/request.png" alt="" height="150px" width="170px">
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <h5 class="total">Total: <?php echo $inquries; ?></h5>
+                                    <h5 class="total">Total:</h5>
                                     <a class="small text-white stretched-link" href="inquiries.php">
                                         <div class="small"><i class="fas fa-angle-right fa-xl stretched-link"></i></div>
                                     </a>
@@ -143,7 +119,7 @@ $total = " ";
                                     <img src="../assets/images/schedule.png" alt="" height="150px" width="170px">
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <h5 class="total">Total: <?php echo $schedule; ?></h5>
+                                    <h5 class="total">Total:</h5>
                                     <a class="small text-white stretched-link" href="appointment.php">
                                         <div class="small"><i class="fas fa-angle-right fa-xl stretched-link"></i></div>
                                     </a>
@@ -186,6 +162,7 @@ $total = " ";
                         </div>
 
                     </div>
+
                 </div>
             </main>
             <footer class="py-4 bg-dark mt-auto">
@@ -198,8 +175,10 @@ $total = " ";
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.3.0/dist/umd/simple-datatables.min.js"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/side.js"></script>
+    <script src="../assets/js/table.js"></script>
 </body>
 
 </html>

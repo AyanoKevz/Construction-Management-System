@@ -28,7 +28,7 @@ include 'request.php'
 		<header id="header" class="alt">
 			<nav class="navbar">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="index.php">
+					<a class="navbar-brand" href="../index.php">
 						<img src="../assets/images/ros.jpg" alt="R.O.Salas Construction" width="70" height="50">
 					</a>
 					<ul class="nav nav-underline">

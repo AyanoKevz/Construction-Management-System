@@ -28,7 +28,7 @@ include 'request.php'
 		<header id="header" class="alt">
 			<nav class="navbar">
 				<div class="container-fluid">
-					<a class="navbar-brand" href="index.php">
+					<a class="navbar-brand" href="../index.php">
 						<img src="../assets/images/ros.jpg" alt="R.O.Salas Construction" width="70" height="50">
 					</a>
 					<ul class="nav nav-underline">
@@ -63,7 +63,7 @@ include 'request.php'
 				<div class="inner">
 
 					<h2>Services</h2>
-					<p>We offer a construction debris hauling service.</p>
+					<p>We offer a construction service.</p>
 				</div>
 			</header>
 
@@ -71,9 +71,8 @@ include 'request.php'
 			<div class="wrapper">
 				<div class="inner">
 
-					<h2 class="major">What is construction hauling?</h2>
-					<p> Construction hauling refers to the transportation of materials, equipment, and waste to and from construction sites. It is an essential part of the
-						construction industry, ensuring that the necessary resources and materials are delivered to the site and that waste and debris are removed efficiently. </p>
+					<h2 class="major">What is construction Services?</h2>
+					<p> Construction services means the physical construction work undertaken by a CM/GC contractor to construct a project or a portion of the project (including early work packages). Construction services include all costs to perform, supervise, and administer physical construction work. </p>
 
 					<section class="features">
 						<article>
