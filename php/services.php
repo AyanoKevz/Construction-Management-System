@@ -83,7 +83,7 @@ include 'request.php'
 						<article>
 							<a href="#" class="image"><img src="../assets/images/construction.jpg" alt="" /></a>
 							<h3 class="major">Construction Industry</h3>
-							<p>Debris from all the construction activity will only occupy precious space, which is why it is best that it be removed right away. Furthermore, construction materials such as steel bars and scaffolding can also be delivered by our company.</p>
+							<p>Our experts have worked with general contractors, specialized subcontractors, and home builders. We can help you with accounting, consulting, and tax services, as well as business software and technology consulting to meet the complex needs of your construction business.</p>
 						</article>
 					</section>
 
