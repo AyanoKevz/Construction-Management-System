@@ -1,8 +1,14 @@
 <?php
-
-
+session_start();
 include 'db_connection.php';
 include 'schedule.php';
+include 'login.php';
+
+if (!isset($_SESSION["ID"])) {
+    header("location: ../admin.php");
+    exit();
+}
+
 
 ?>
 

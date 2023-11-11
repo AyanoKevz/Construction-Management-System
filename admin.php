@@ -57,9 +57,9 @@ if (isset($_SESSION["ID"])) {
             </div>
           </div>
           <input class="input" placeholder="Username" name="username" type="text" autocomplete="off" required="on">
-          <span class="text-danger alert-login"><?php echo $invalid_user ?></span>
+          <span class="text-danger fs-6"><?php echo $invalid_user ?></span>
           <input class="input" placeholder="Password" name="password" type="password" autocomplete="off" required="on">
-          <span class="text-danger alert-login"><?php echo $invalid_pass ?></span>
+          <span class="text-danger fs-6"><?php echo $invalid_pass ?></span>
           <button class="btn" type="submit" name="login" id="login">Login</button>
         </form>
       </div>

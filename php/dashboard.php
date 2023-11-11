@@ -100,6 +100,7 @@ $total = " ";
                     </ol>
                     <h1 class="mt-3 mb-4">Dashboard</h1>
                     <?php
+
                     $query = "SELECT COUNT(*) FROM `req_appoint`";
                     $stmt = mysqli_prepare($conn, $query);
                     mysqli_stmt_execute($stmt);
@@ -114,6 +115,12 @@ $total = " ";
                     mysqli_stmt_fetch($stmt);
                     mysqli_stmt_close($stmt);
 
+                    $query = "SELECT COUNT(*) FROM `employee`";
+                    $stmt = mysqli_prepare($conn, $query);
+                    mysqli_stmt_execute($stmt);
+                    mysqli_stmt_bind_result($stmt, $employees);
+                    mysqli_stmt_fetch($stmt);
+                    mysqli_stmt_close($stmt);
                     ?>
 
                     <div class="row">
@@ -126,7 +133,7 @@ $total = " ";
                                     <img src="../assets/images/request.png" alt="" height="150px" width="170px">
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <h5 class="total">Total: <?php echo $inquries; ?></h5>
+                                    <h5 class="my-0 mx-auto">Total: <?php echo $inquries; ?></h5>
                                     <a class="small text-white stretched-link" href="inquiries.php">
                                         <div class="small"><i class="fas fa-angle-right fa-xl stretched-link"></i></div>
                                     </a>
@@ -143,7 +150,7 @@ $total = " ";
                                     <img src="../assets/images/schedule.png" alt="" height="150px" width="170px">
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <h5 class="total">Total: <?php echo $schedule; ?></h5>
+                                    <h5 class="my-0 mx-auto">Total: <?php echo $schedule; ?></h5>
                                     <a class="small text-white stretched-link" href="appointment.php">
                                         <div class="small"><i class="fas fa-angle-right fa-xl stretched-link"></i></div>
                                     </a>
@@ -154,13 +161,13 @@ $total = " ";
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-logo2 text-white mb-4">
                                 <div class="card-header">
-                                    <h4> Contracts</h4>
+                                    <h4>Contracts</h4>
                                 </div>
                                 <div class="card-body">
                                     <img src="../assets/images/contract.png" alt="" height="150px" width="170px">
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <h5 class="total">Total:</h5>
+                                    <h5 class="my-0 mx-auto">Total:</h5>
                                     <a class="small text-white stretched-link icons" href="#">
                                         <div class="small"><i class="fas fa-angle-right fa-xl stretched-link"></i></div>
                                     </a>
@@ -171,13 +178,13 @@ $total = " ";
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-logo2 text-white mb-4">
                                 <div class="card-header">
-                                    <h4> Transactions</h4>
+                                    <h4>Employees</h4>
                                 </div>
                                 <div class="card-body">
                                     <img src="../assets/images/arrange.png" alt="" height="150px" width="170px">
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <h5 class="total">Total:</h5>
+                                    <h5 class="my-0 mx-auto">Total: <?php echo $employees; ?></h5>
                                     <a class="small text-white stretched-link icons" href="#">
                                         <div class="small"><i class="fas fa-angle-right fa-xl stretched-link"></i></div>
                                     </a>

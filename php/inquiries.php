@@ -1,8 +1,14 @@
 <?php
-
-
+session_start();
 include 'db_connection.php';
 include 'schedule.php';
+include 'login.php';
+
+if (!isset($_SESSION["ID"])) {
+    header("location: ../admin.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -253,8 +259,6 @@ include 'schedule.php';
                 alert.remove();
             }
         }, 3500);
-        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
     </script>
 </body>
 

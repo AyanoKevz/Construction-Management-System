@@ -1,7 +1,14 @@
 <?php
-
-$total = " ";
+session_start();
 include 'db_connection.php';
+include 'addEmp.php';
+include 'login.php';
+
+if (!isset($_SESSION["ID"])) {
+    header("location: ../admin.php");
+    exit();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -85,25 +92,36 @@ include 'db_connection.php';
             </nav>
         </div>
         <div id="layoutSidenav_content">
+            <?php
+            if ($add_error) {
+                echo '<label class="text-danger error" id="alert">' . $add_error . '</label>';
+            }
+            if ($success) {
+                echo '<label class="text-success success" id="alert">' . $success . '</label>';
+            }
+            ?>
             <main>
                 <div class="container-fluid px-4">
                     <ol class="breadcrumb mb-1">
                         <li class="breadcrumb-item active"></li>
                     </ol>
-                    <h1 class="mt-2 mb-4">Employee List</h1>
+                    <h1 class="mt-3 mb-5">Employee List</h1>
+                    <button type="button" class="add-btn" data-bs-toggle="modal" data-bs-target="#add-emp">
+                        Add Employee
+                    </button>
 
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-logo2 text-white mb-4">
                                 <div class="card-header">
-                                    <h4>Inquiries</h4>
+                                    <h4>Engineers</h4>
                                 </div>
                                 <div class="card-body">
-                                    <img src="../assets/images/request.png" alt="" height="150px" width="170px">
+                                    <img src="../assets/images/engineer.png" alt="" height="150px" width="170px">
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <h5 class="total">Total:</h5>
-                                    <a class="small text-white stretched-link" href="inquiries.php">
+                                    <h5 class="my-0 mx-auto">Total: <?php echo $totalEngineers; ?></h5>
+                                    <a class="small text-white stretched-link" href="allList.php?position=Engineer">
                                         <div class="small"><i class="fas fa-angle-right fa-xl stretched-link"></i></div>
                                     </a>
                                 </div>
@@ -113,14 +131,14 @@ include 'db_connection.php';
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-logo2 text-white mb-4">
                                 <div class="card-header">
-                                    <h4>Scheduled Appointment</h4>
+                                    <h4>Formen</h4>
                                 </div>
                                 <div class="card-body">
-                                    <img src="../assets/images/schedule.png" alt="" height="150px" width="170px">
+                                    <img src="../assets/images/foreman.png" alt="" height="150px" width="170px">
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <h5 class="total">Total:</h5>
-                                    <a class="small text-white stretched-link" href="appointment.php">
+                                    <h5 class="my-0 mx-auto">Total: <?php echo  $totalForman; ?></h5>
+                                    <a class="small text-white stretched-link" href="allList.php?position=Forman">
                                         <div class="small"><i class="fas fa-angle-right fa-xl stretched-link"></i></div>
                                     </a>
                                 </div>
@@ -130,14 +148,14 @@ include 'db_connection.php';
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-logo2 text-white mb-4">
                                 <div class="card-header">
-                                    <h4> Contracts</h4>
+                                    <h4>Workers</h4>
                                 </div>
                                 <div class="card-body">
-                                    <img src="../assets/images/contract.png" alt="" height="150px" width="170px">
+                                    <img src="../assets/images/workers.png" alt="" height="150px" width="170px">
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <h5 class="total">Total:</h5>
-                                    <a class="small text-white stretched-link icons" href="#">
+                                    <h5 class="my-0 mx-auto">Total: <?php echo  $totalWorkers; ?></h5>
+                                    <a class="small text-white stretched-link icons" href="allList.php?position=Worker">
                                         <div class="small"><i class="fas fa-angle-right fa-xl stretched-link"></i></div>
                                     </a>
                                 </div>
@@ -147,14 +165,14 @@ include 'db_connection.php';
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-logo2 text-white mb-4">
                                 <div class="card-header">
-                                    <h4> Transactions</h4>
+                                    <h4>Human Resources</h4>
                                 </div>
                                 <div class="card-body">
-                                    <img src="../assets/images/arrange.png" alt="" height="150px" width="170px">
+                                    <img src="../assets/images/hr.png" alt="" height="150px" width="170px">
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <h5 class="total">Total:</h5>
-                                    <a class="small text-white stretched-link icons" href="#">
+                                    <h5 class="my-0 mx-auto">Total: <?php echo  $totalHR; ?></h5>
+                                    <a class="small text-white stretched-link icons" href="allList.php?position=Human Resource">
                                         <div class="small"><i class="fas fa-angle-right fa-xl stretched-link"></i></div>
                                     </a>
                                 </div>
@@ -162,7 +180,6 @@ include 'db_connection.php';
                         </div>
 
                     </div>
-
                 </div>
             </main>
             <footer class="py-4 bg-dark mt-auto">
@@ -175,10 +192,66 @@ include 'db_connection.php';
         </div>
     </div>
 
+    <div class="modal fade" id="add-emp" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticSchedule">Add Employee</h1>
+                </div>
+                <div class="modal-body text-start">
+                    <form method="post" action="#">
+                        <div class="mb-3">
+                            <label for="fname" class="col-form-label">First Name:</label>
+                            <input type="text" class="form-control" id="fname" name="fname" autocomplete="off" required="on">
+                        </div>
+                        <div class="mb-3">
+                            <label for="lname" class="col-form-label">Last Name:</label>
+                            <input type="text" class="form-control" id="lname" name="lname" autocomplete="off" required="on">
+                        </div>
+                        <div class="mb-3">
+                            <label for="number" class="col-form-label">Contact Number:</label>
+                            <input type="text" maxlength="11" class="form-control" type="text" name="number" id="number" autocomplete="off" required="on">
+                            <span class="text-danger fs-6"><?php echo $contact_error ?></span>
+                        </div>
+                        <div class="mb-3">
+                            <select name="gender" class="form-select" aria-label="Default select example">
+                                <option selected disabled>Select the gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <select name="position" class="form-select" aria-label="Default select example">
+                                <option selected disabled>Select position</option>
+                                <option value="Engineer">Engineer</option>
+                                <option value="Forman">Forman</option>
+                                <option value="Worker">Worker</option>
+                                <option value="Human Resource">Human Resource</option>
+                            </select>
+                        </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" id="add" name="add" class="btn btn-primary">Add</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.3.0/dist/umd/simple-datatables.min.js"></script>
     <script src="../assets/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/js/side.js"></script>
     <script src="../assets/js/table.js"></script>
+    <script>
+        setTimeout(function() {
+            var alert = document.getElementById('alert');
+            if (alert) {
+                alert.remove();
+            }
+        }, 3500);
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
+        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
+    </script>
 </body>
 
 </html>

@@ -229,6 +229,19 @@ button:not(:disabled),
   margin-right: auto;
   margin-left: auto;
 }
+.add-btn {
+  background-color: #3302FC;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 5px 12px;
+  margin: 0 auto 20px;
+}
+
+.add-btn:hover {
+  background-color: rgb(124, 129, 133);
+}
+
 
 .btn {
   --bs-btn-padding-x: 0.75rem;
@@ -890,6 +903,15 @@ body {
   align-items: center;
   position: relative;
   padding: 0.75rem 0.85rem 0.75rem 12px;
+  margin-top: 5px;
+}
+a.active {
+  color: #FCFC28;
+  text-shadow: -1px -1px 0 black, 
+    1px -1px 0 black, 
+    -1px 1px 0 black, 
+    1px 1px 0 black;
+  background-color: #3302FC;
 }
 .sb-sidenav .sb-sidenav-menu .nav .nav-link .sb-nav-link-icon {
   font-size: 0.9rem;
@@ -952,4 +974,20 @@ body {
   .sb-sidenav-toggled #layoutSidenav #layoutSidenav_content:before {
     display: none;
   }
+}
+
+.error {
+  background: #f8d7da;
+  color: rgb(220,53,69);
+  border: #f1aeb5 1px solid;
+  padding: 4px;
+  text-align: center;
+}
+
+.success {
+  background: #d1e7dd;
+  color: #0a3622;
+  border: #a3cfbb 1px solid;
+  padding: 4px;
+  text-align: center;
 }
