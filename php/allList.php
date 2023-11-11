@@ -50,7 +50,44 @@ if (isset($_POST["update"])) {
             mysqli_stmt_close($stmt);
 
             // Handle file upload if a file is provided
+            if (isset($_FILES["file"]) && !empty($_FILES["file"]["name"])) {
+                $targetDirectory = "../assets/emp_pic/";
+                $targetFile = $targetDirectory . basename($_FILES["file"]["name"]);
 
+                // Check file size (you can adjust the file size limit)
+                if ($_FILES["file"]["size"] > 5000000) {
+                    $update_error = "Sorry, your file is too large. 5mb is the limit only";
+                } else {
+                    // Allow certain file formats
+                    $allowedFormats = ["jpg", "jpeg", "png", "gif"];
+                    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+
+                    if (!in_array($imageFileType, $allowedFormats)) {
+                        $update_error = "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+                    } else {
+                        // Move the uploaded file
+                        if (move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile)) {
+                            // Update the employee image
+                            $query = "UPDATE `employee` SET `emp_img`=? WHERE `ID`=?";
+                            $stmt = mysqli_prepare($conn, $query);
+                            mysqli_stmt_bind_param($stmt, "si", $targetFile, $employeeID);
+                            mysqli_stmt_execute($stmt);
+
+                            if (mysqli_stmt_affected_rows($stmt) > 0) {
+                                // Image update successful
+                                $update_success = "Employee image updated successfully.";
+                            } else {
+                                // Image update failed
+                                $update_error = "Error updating employee image.";
+                            }
+
+                            mysqli_stmt_close($stmt);
+                        } else {
+                            $update_error = "Sorry, there was an error uploading your file.";
+                        }
+                    }
+                }
+            }
         }
     }
 }
