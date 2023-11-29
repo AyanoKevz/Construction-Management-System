@@ -51,8 +51,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 
   if ($position === 'Engineer') {
     $totalEngineers = $count;
-  } elseif ($position === 'Forman') {
-    $totalForman = $count;
+  } elseif ($position === 'Foreman') {
+    $totalForeman = $count;
   } elseif ($position === 'Worker') {
     $totalWorkers = $count;
   } elseif ($position === 'Human Resource') {

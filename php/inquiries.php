@@ -71,10 +71,17 @@ if (!isset($_SESSION["ID"])) {
                                 <a class="nav-link active" href="inquiries.php">Inquiries</a>
                             </nav>
                         </div>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#project" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fa fa-file-contract"></i></div>
-                            Contract Project
+                            Project Contract
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
+                        <div class="collapse" id="project" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="projectList.php">Project Lists</a>
+                                <a class="nav-link" href="delivery.php">Materials Deliveries</a>
+                            </nav>
+                        </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#team" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-people-group"></i></div>
                             Company Team
@@ -82,11 +89,10 @@ if (!isset($_SESSION["ID"])) {
                         </a>
                         <div class="collapse" id="team" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="emplist.php">Employee List</a>
-                                <a class="nav-link" href="#">Project Team </a>
+                                <a class="nav-link" href="emplist.php">Employee Lists</a>
+                                <a class="nav-link" href="teamList.php">Project Teams </a>
                             </nav>
                         </div>
-
                     </div>
                 </div>
                 <div class="sb-sidenav-footer bg-logo1">
@@ -134,15 +140,13 @@ if (!isset($_SESSION["ID"])) {
                                             <td><?php echo $row["Number"]; ?></td>
                                             <td><?php echo $row["Email"]; ?></td>
                                             <td>
-
-                                                <a href="#" class="message-link" data-bs-toggle="modal" data-bs-tooltip="tooltip" data-bs-title="Client Message" data-bs-target="#view<?php echo $row['ID']; ?>">View</a>
+                                                <a href="#" class="add-btn fs-6" data-bs-toggle="modal" data-bs-title="Client Message" data-bs-target="#view<?php echo $row['ID']; ?>">
+                                                    <i class=" fa-solid fa-eye fa-xs me-1" style="color: #ffffff;"></i>View</a>
                                             </td>
                                             <td><?php echo $row["req_date"]; ?></td>
                                             <td>
-
                                                 <button type="button" class="popover pop1" data-bs-toggle="modal" data-bs-target="#schedule<?php echo $row['ID']; ?>"><i class="fas fa-circle-check fa-2xl" style="color: #35f500;"></i></button>
                                                 <button type="button" class="popover pop2" data-bs-toggle="modal" data-bs-target="#reject<?php echo $row['ID']; ?>"><i class="fas fa-circle-xmark fa-2xl" style="color: #f50000;"></i></button>
-
                                             </td>
                                         </tr>
                                         <div class="modal fade" id="view<?php echo $row['ID']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

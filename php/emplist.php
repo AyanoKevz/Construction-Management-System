@@ -67,22 +67,28 @@ if (!isset($_SESSION["ID"])) {
                                 <a class="nav-link" href="inquiries.php">Inquiries</a>
                             </nav>
                         </div>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#project" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fa fa-file-contract"></i></div>
-                            Contract Project
+                            Project Contract
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
-                        <a class="nav-link collapsed active" href="#" data-bs-toggle="collapse" data-bs-target="#team" aria-expanded="false" aria-controls="collapseLayouts">
+                        <div class="collapse" id="project" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="projectList.php">Project Lists</a>
+                                <a class="nav-link" href="delivery.php">Materials Deliveries</a>
+                            </nav>
+                        </div>
+                        <a class="nav-link active collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#team" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-people-group"></i></div>
                             Company Team
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="team" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link active" href="emplist.php">Employee List</a>
-                                <a class="nav-link" href="#">Project Team </a>
+                                <a class="nav-link active" href="emplist.php">Employee Lists</a>
+                                <a class="nav-link" href="teamList.php">Project Teams </a>
                             </nav>
                         </div>
-
                     </div>
                 </div>
                 <div class="sb-sidenav-footer bg-logo1">
@@ -105,10 +111,12 @@ if (!isset($_SESSION["ID"])) {
                     <ol class="breadcrumb mb-1">
                         <li class="breadcrumb-item active"></li>
                     </ol>
-                    <h1 class="mt-3 mb-5">Employee List</h1>
-                    <button type="button" class="add-btn" data-bs-toggle="modal" data-bs-target="#add-emp">
-                        Add Employee
-                    </button>
+                    <h1 class="mt-3 mb-2">Employee List</h1>
+                    <div class="d-flex  justify-content-end me-1">
+                        <button type="button" class="add-btn p-2" data-bs-toggle="modal" data-bs-target="#add-emp">
+                            <i class="fas fa-plus fa-sm" style="color: #ffffff;"></i> Add Employee
+                        </button>
+                    </div>
 
                     <div class="row">
                         <div class="col-xl-3 col-md-6">
@@ -131,14 +139,14 @@ if (!isset($_SESSION["ID"])) {
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-logo2 text-white mb-4">
                                 <div class="card-header">
-                                    <h4>Formen</h4>
+                                    <h4>Foremen</h4>
                                 </div>
                                 <div class="card-body">
                                     <img src="../assets/images/foreman.png" alt="" height="150px" width="170px">
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <h5 class="my-0 mx-auto">Total: <?php echo  $totalForman; ?></h5>
-                                    <a class="small text-white stretched-link" href="allList.php?position=Forman">
+                                    <h5 class="my-0 mx-auto">Total: <?php echo  $totalForeman; ?></h5>
+                                    <a class="small text-white stretched-link" href="allList.php?position=Foreman">
                                         <div class="small"><i class="fas fa-angle-right fa-xl stretched-link"></i></div>
                                     </a>
                                 </div>
@@ -224,7 +232,7 @@ if (!isset($_SESSION["ID"])) {
                             <select name="position" class="form-select" aria-label="Default select example">
                                 <option selected disabled>Select position</option>
                                 <option value="Engineer">Engineer</option>
-                                <option value="Forman">Forman</option>
+                                <option value="Foreman">Foreman</option>
                                 <option value="Worker">Worker</option>
                                 <option value="Human Resource">Human Resource</option>
                             </select>
@@ -249,8 +257,6 @@ if (!isset($_SESSION["ID"])) {
                 alert.remove();
             }
         }, 3500);
-        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]')
-        const popoverList = [...popoverTriggerList].map(popoverTriggerEl => new bootstrap.Popover(popoverTriggerEl))
     </script>
 </body>
 

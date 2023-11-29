@@ -235,7 +235,7 @@ button:not(:disabled),
   border: none;
   border-radius: 8px;
   padding: 5px 12px;
-  margin: 0 auto 20px;
+  margin: 0 0 8px;
 }
 
 .add-btn:hover {

@@ -1425,16 +1425,6 @@ a.active {
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
-.message-link {
-  color: red;
-  text-decoration: none;
-}
-
-.message-link:hover {
-  color: var(--bs-link-color);
-  text-decoration: underline;
-}
-
 .success {
   background: #d1e7dd;
   color: #0a3622;

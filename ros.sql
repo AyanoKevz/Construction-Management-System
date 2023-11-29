@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 25, 2023 at 02:27 AM
+-- Generation Time: Nov 29, 2023 at 03:11 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -20,6 +20,142 @@ SET time_zone = "+00:00";
 --
 -- Database: `ros`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `covered court`
+--
+
+CREATE TABLE `covered court` (
+  `ID` int(11) NOT NULL,
+  `projectID` int(11) NOT NULL,
+  `foundation` int(11) NOT NULL DEFAULT 0,
+  `roofing` int(11) NOT NULL DEFAULT 0,
+  `walls` int(11) NOT NULL DEFAULT 0,
+  `flooring` int(11) NOT NULL DEFAULT 0,
+  `utilities` int(11) NOT NULL DEFAULT 0,
+  `pic1` varchar(255) NOT NULL,
+  `pic2` varchar(255) NOT NULL,
+  `pic3` varchar(255) NOT NULL,
+  `pic4` varchar(255) NOT NULL,
+  `pic5` varchar(255) NOT NULL,
+  `updateDate` date DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `ID` int(11) NOT NULL,
+  `teamID` int(11) DEFAULT NULL,
+  `fname` varchar(255) NOT NULL,
+  `lname` varchar(255) NOT NULL,
+  `number` varchar(128) NOT NULL,
+  `gender` varchar(128) NOT NULL,
+  `position` varchar(128) NOT NULL,
+  `emp_img` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`ID`, `teamID`, `fname`, `lname`, `number`, `gender`, `position`, `emp_img`) VALUES
+(1, 1, 'Joshua', 'Mislang', '09898113131', 'Male', 'Worker', '../assets/emp_pic/mislang.jpg'),
+(2, 1, 'Mark', 'Zucker', '09949494946', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(3, 1, 'Jared', 'Dillinger', '09594640643', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
+(4, 1, 'Gerald', 'Underscore', '09594456464', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(5, 1, 'Coco', 'Maja', '09894949405', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(6, 1, 'Sam', 'Misth', '08948440949', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(7, 1, 'Ryan ', 'Owen', '09942549529', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
+(8, NULL, 'Alyanna', 'Sibal', '09949494949', 'Female', 'Human Resource', '../assets/images/no_img.jpg'),
+(9, NULL, 'Ralf', 'Ureta', '09907979041', 'Male', 'Human Resource', '../assets/images/no_img.jpg'),
+(10, 2, 'Joshua', 'Langmis', '09095495095', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
+(11, NULL, 'Ivana', 'Mulawin', '09594064644', 'Female', 'Human Resource', '../assets/images/no_img.jpg'),
+(12, 2, 'Kevin', 'Caezar', '09987165010', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
+(13, 4, 'Tyler', 'Bey', '09984651616', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
+(14, NULL, 'Jun', 'Ramos', '09080446131', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
+(15, 2, 'Jhong', 'Hillario', '09589449494', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(16, 2, 'Donny', 'Narcos', '09898090449', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(17, NULL, 'Mariel', 'Santos', '09097644646', 'Female', 'Human Resource', '../assets/images/no_img.jpg'),
+(18, 2, 'Bryan', 'Aguilar', '09744946464', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(19, 3, 'Justin', 'Lee', '09789498409', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
+(20, NULL, 'Katrina', 'Almarez', '09979749904', 'Female', 'Engineer', '../assets/images/no_img.jpg'),
+(21, NULL, 'Jonathan', 'Kuminga', '09794949494', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
+(22, NULL, 'Sandra', 'Marcas', '09494944949', 'Female', 'Human Resource', '../assets/images/no_img.jpg'),
+(23, NULL, 'Christian', 'Mercado', '09589089979', 'Male', 'Human Resource', '../assets/images/no_img.jpg'),
+(24, 3, 'Nelson', 'Guimbao', '09859094949', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(25, 3, 'Nardo', 'Putin', '09565549646', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(26, 3, 'Eren', 'Yeager', '09494640616', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
+(27, NULL, 'Chris', 'Newsome', '09594090979', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
+(28, NULL, 'Alex', 'Mewing', '09879494094', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
+(29, NULL, 'Marco', 'Gumabao', '09940904940', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
+(30, NULL, 'Juan', 'Tuna', '09894940904', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
+(31, NULL, 'Jerry', 'Galinato', '09094949409', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
+(32, 3, 'David', 'Nagiba', '09890490494', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(33, 3, 'Joseph', 'Ilao', '09979090494', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(34, 3, 'Jason', 'Dela Cruz', '09797797979', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(35, NULL, 'Diexter', 'Goto', '09451874230', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
+(36, 4, 'Gian', 'Conception', '09048451518', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
+(37, NULL, 'Justine', 'Balboa', '09590494040', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(38, NULL, 'Zaki', 'Mcario', '09453842064', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
+(39, NULL, 'Bianca', 'Gomez', '09561564879', 'Female', 'Engineer', '../assets/images/no_img.jpg'),
+(40, NULL, 'Jude', 'Marcos', '09218787984', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
+(41, NULL, 'Steven', 'Perez', '09051564694', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(42, NULL, 'Mavi', 'Espanto', '09164646460', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(43, NULL, 'Kevin', 'Goto', '09458526487', 'Male', 'Human Resource', '../assets/images/no_img.jpg'),
+(44, NULL, 'Tristan', 'Cabrera', '08979464161', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(45, NULL, 'Juan', 'Gonzaga', '09797090494', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(46, NULL, 'James', 'yhup', '09790446565', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(47, NULL, 'Rodrigo', 'Dulerte', '09421574842', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(48, NULL, 'Samson', 'Aguilar', '09506166616', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
+(49, NULL, 'Julius', 'Antabay', '09740600464', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(50, NULL, 'Lea', 'Salom', '09461118748', 'Female', 'Human Resource', '../assets/images/no_img.jpg');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `hauling transport`
+--
+
+CREATE TABLE `hauling transport` (
+  `ID` int(11) NOT NULL,
+  `projectID` int(11) NOT NULL,
+  `removal` int(11) NOT NULL DEFAULT 0,
+  `transport` int(11) NOT NULL DEFAULT 0,
+  `pic1` varchar(255) NOT NULL,
+  `pic2` varchar(255) NOT NULL,
+  `pic3` varchar(255) NOT NULL,
+  `pic4` varchar(255) NOT NULL,
+  `pic5` varchar(255) NOT NULL,
+  `updateDate` date DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `house/building`
+--
+
+CREATE TABLE `house/building` (
+  `ID` int(11) NOT NULL,
+  `projectID` int(11) NOT NULL,
+  `foundation` int(11) NOT NULL DEFAULT 0,
+  `structure` int(11) NOT NULL DEFAULT 0,
+  `exterior` int(11) NOT NULL DEFAULT 0,
+  `interior` int(11) NOT NULL DEFAULT 0,
+  `utilities` int(11) NOT NULL DEFAULT 0,
+  `pic1` varchar(255) NOT NULL,
+  `pic2` varchar(255) NOT NULL,
+  `pic3` varchar(255) NOT NULL,
+  `pic4` varchar(255) NOT NULL,
+  `pic5` varchar(255) NOT NULL,
+  `updateDate` date DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -43,6 +179,45 @@ INSERT INTO `login` (`ID`, `username`, `password`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `materials`
+--
+
+CREATE TABLE `materials` (
+  `ID` int(11) NOT NULL,
+  `projectID` int(11) NOT NULL,
+  `concrete` varchar(255) NOT NULL,
+  `lumber` varchar(255) NOT NULL,
+  `steel` varchar(255) NOT NULL,
+  `aggregates` varchar(255) NOT NULL,
+  `bricks` varchar(255) NOT NULL,
+  `roofing` varchar(255) NOT NULL,
+  `finishing` varchar(255) NOT NULL,
+  `deliDate` date NOT NULL DEFAULT current_timestamp(),
+  `deliTime` time NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project`
+--
+
+CREATE TABLE `project` (
+  `ID` int(11) NOT NULL,
+  `teamID` int(11) NOT NULL,
+  `projectCode` varchar(255) NOT NULL,
+  `projectType` varchar(255) NOT NULL,
+  `projectName` varchar(255) NOT NULL,
+  `cost` varchar(255) NOT NULL,
+  `location` varchar(255) NOT NULL,
+  `startingDate` date NOT NULL DEFAULT current_timestamp(),
+  `deadline` date NOT NULL DEFAULT current_timestamp(),
+  `status` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `req_appoint`
 --
 
@@ -55,27 +230,26 @@ CREATE TABLE `req_appoint` (
   `req_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `req_appoint`
+-- Table structure for table `road/highway`
 --
 
-INSERT INTO `req_appoint` (`ID`, `Name`, `Email`, `Number`, `Message`, `req_date`) VALUES
-(8, 'One', 'none@gmail.com', '09552514', '092322', '2023-10-18'),
-(9, 'wew', 'ewew@gmail.com', '12222', 'dawda', '2023-10-20'),
-(10, 'tra', 'tra@gmail.com', '158797', 'dadada', '2023-10-20'),
-(11, 'ewew', 'evl@gmai.com', '182515', 'wewew', '2023-10-20'),
-(12, 'ere', 'evel@gmail.com', '25454', 'adadasd', '2023-10-20'),
-(13, 'adada', 'adad@gmail.com', '78799', 'adadasdasd', '2023-10-20'),
-(14, 'daada', 'dada@gmail.com', '4545454', 'adawdad', '2023-10-21'),
-(15, 'adada', 'adada@gmail.com', '787487878', 'dadada', '2023-10-21'),
-(16, 'dadada', 'ewaeawewa@gmail.com', '079806546', 'adasdasda', '2023-10-21'),
-(17, 'ewrwe', 'ewewe@gmail.com', '3131352131', 'azdadadas', '2023-10-21'),
-(18, 'eqwewqeqw', 'aead@gmail.com', '4653132', 'adasdsad', '2023-10-21'),
-(19, 'Juan', 'Juan@gmail.com', '864646', 'adadada', '2023-10-21'),
-(20, 'adadas32', 'adasd@gmail.com', '44121', 'dadasdsadsa', '2023-10-21'),
-(21, 'adasda', 'sfae@gmail.com', '989854', 'adsadas\\r\\n', '2023-10-21'),
-(22, 'jk', 'jk@gmail.com', '09464546', 'adadasd', '2023-10-21'),
-(23, 'Kuminga', 'Jks@gmail.com', '09654589', 'This is test', '2023-10-21');
+CREATE TABLE `road/highway` (
+  `ID` int(11) NOT NULL,
+  `projectID` int(11) NOT NULL,
+  `earthwork` int(11) NOT NULL DEFAULT 0,
+  `roadsurface` int(11) NOT NULL DEFAULT 0,
+  `drainage` int(11) NOT NULL DEFAULT 0,
+  `utilities` int(11) NOT NULL DEFAULT 0,
+  `pic1` varchar(255) NOT NULL,
+  `pic2` varchar(255) NOT NULL,
+  `pic3` varchar(255) NOT NULL,
+  `pic4` varchar(255) NOT NULL,
+  `pic5` varchar(255) NOT NULL,
+  `updateDate` date DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -92,31 +266,72 @@ CREATE TABLE `schedule` (
   `Sched_Time` time NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `schedule`
+-- Table structure for table `team`
 --
 
-INSERT INTO `schedule` (`ID`, `Name`, `Email`, `Number`, `Sched_Date`, `Sched_Time`) VALUES
-(1, '', '', '', '2023-10-26', '04:15:00'),
-(2, '', '', '', '2023-10-26', '07:58:00'),
-(3, '', '', '', '2023-10-25', '05:02:00'),
-(4, '', '', '', '2023-10-25', '05:02:00'),
-(5, 'Test', 'test@gmail.com', '09123456789', '2023-10-25', '05:10:00'),
-(6, 'tezzt', 'testt@gmail.com', '095555555', '2023-10-26', '06:02:00'),
-(7, 'Mark', 'Tahimilik@gmail.com', '09457899', '2023-10-25', '06:08:00'),
-(8, 'tezzt', 'kevin@gmail.com', '0955555', '2023-10-25', '06:12:00'),
-(9, 'awit', 'wala@gmail.com', '095555', '2023-10-25', '06:21:00'),
-(10, 'test2', 'test2@gmail.com', '0977777777', '2023-10-25', '06:46:00'),
-(11, 'test3', 'yao@gmail.com', '0988888888', '2023-10-25', '06:48:00');
+CREATE TABLE `team` (
+  `ID` int(11) NOT NULL,
+  `teamName` varchar(255) NOT NULL,
+  `projectID` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `team`
+--
+
+INSERT INTO `team` (`ID`, `teamName`, `projectID`) VALUES
+(1, 'WeCare', NULL),
+(2, 'Team-Action', NULL),
+(3, 'Team-Perfomance', NULL),
+(4, 'Reforma', NULL);
 
 --
 -- Indexes for dumped tables
 --
 
 --
+-- Indexes for table `covered court`
+--
+ALTER TABLE `covered court`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `hauling transport`
+--
+ALTER TABLE `hauling transport`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `house/building`
+--
+ALTER TABLE `house/building`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `login`
 --
 ALTER TABLE `login`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `materials`
+--
+ALTER TABLE `materials`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -126,14 +341,50 @@ ALTER TABLE `req_appoint`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `road/highway`
+--
+ALTER TABLE `road/highway`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `schedule`
 --
 ALTER TABLE `schedule`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `team`
+--
+ALTER TABLE `team`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `covered court`
+--
+ALTER TABLE `covered court`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
+--
+-- AUTO_INCREMENT for table `hauling transport`
+--
+ALTER TABLE `hauling transport`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `house/building`
+--
+ALTER TABLE `house/building`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -142,16 +393,40 @@ ALTER TABLE `login`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `materials`
+--
+ALTER TABLE `materials`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `req_appoint`
 --
 ALTER TABLE `req_appoint`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+
+--
+-- AUTO_INCREMENT for table `road/highway`
+--
+ALTER TABLE `road/highway`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+
+--
+-- AUTO_INCREMENT for table `team`
+--
+ALTER TABLE `team`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

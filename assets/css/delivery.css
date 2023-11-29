@@ -982,7 +982,7 @@ a.active {
   }
 }
 
-/*Table*/
+/*Ito lahat table*/
 
 .datatable-top > nav:first-child,
 .datatable-top > div:first-child,
@@ -1053,6 +1053,7 @@ a.active {
 .datatable-table > thead > tr > th {
   vertical-align: top;
   padding: 0.5rem 0.5rem;
+  font-size: 20px;
 }
 
 .datatable-table > thead > tr > th {
@@ -1424,6 +1425,14 @@ a.active {
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
+
+.success {
+  background: #d1e7dd;
+  color: #0a3622;
+  border: #a3cfbb 1px solid;
+  padding: 4px;
+  text-align: center;
+}
 .error {
   background: #f8d7da;
   color: rgb(220,53,69);
@@ -1432,38 +1441,3 @@ a.active {
   text-align: center;
 }
 
-.popover {
-  position: relative;
-  z-index: 1;
-  display: inline-block;
-}
-
-.popover::after {
-  
-  position: absolute;
-  background-color: #333; /* Dark background color */
-  color: #fff; /* White text color */
-  padding: 8px;
-  border-radius: 4px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s, visibility 0.3s;
-  text-align: center;
-  white-space: nowrap; /* Display content in a single line */
-  bottom: 100%; /* Display at the bottom */
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.popover:hover::after {
-  opacity: 1;
-  visibility: visible;
-}
-
-.pop1::after {
-  content: 'Schedule';
-}
-
-.pop2::after {
-  content: 'Reject';
-}

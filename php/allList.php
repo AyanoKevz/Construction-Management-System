@@ -163,10 +163,17 @@ if (isset($_POST["delete"])) {
                                 <a class="nav-link " href="inquiries.php">Inquiries</a>
                             </nav>
                         </div>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#project" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fa fa-file-contract"></i></div>
-                            Contract Project
+                            Project Contract
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
+                        <div class="collapse" id="project" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="projectList.php">Project Lists</a>
+                                <a class="nav-link" href="delivery.php">Materials Deliveries</a>
+                            </nav>
+                        </div>
                         <a class="nav-link active collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#team" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-people-group"></i></div>
                             Company Team
@@ -174,11 +181,10 @@ if (isset($_POST["delete"])) {
                         </a>
                         <div class="collapse" id="team" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link active" href="emplist.php">Employee List</a>
-                                <a class="nav-link" href="#">Project Team </a>
+                                <a class="nav-link active" href="emplist.php">Employee Lists</a>
+                                <a class="nav-link" href="teamList.php">Project Teams </a>
                             </nav>
                         </div>
-
                     </div>
                 </div>
                 <div class="sb-sidenav-footer bg-logo1">
@@ -210,8 +216,8 @@ if (isset($_POST["delete"])) {
                         <?php
                         if ($position == "Engineer") {
                             echo '<h1 class="mt-3 mb-4">Engineers</h1>';
-                        } else if ($position == "Forman") {
-                            echo '<h1 class="mt-3 mb-4">Formen</h1>';
+                        } else if ($position == "Foreman") {
+                            echo '<h1 class="mt-3 mb-4">Foremen</h1>';
                         } else if ($position == "Worker") {
                             echo '<h1 class="mt-3 mb-4">Workers</h1>';
                         } else if ($position == "Human Resource") {
@@ -289,7 +295,7 @@ if (isset($_POST["delete"])) {
                                                                     <select name="position" class="form-select" aria-label="Default select example">
                                                                         <option selected value="<?php echo $row["position"]; ?>"><?php echo $row["position"]; ?></option>
                                                                         <option value="Engineer">Engineer</option>
-                                                                        <option value="Forman">Forman</option>
+                                                                        <option value="Foreman">Foreman</option>
                                                                         <option value="Worker">Worker</option>
                                                                         <option value="Human Resource">Human Resource</option>
                                                                     </select>
@@ -304,15 +310,16 @@ if (isset($_POST["delete"])) {
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <div class="modal fade" id="delete<?php echo $row['ID']; ?>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                                 <div class="modal-dialog modal-dialog-centered">
                                                     <div class="modal-content">
                                                         <div class="modal-header">
-                                                            <h2 class="modal-title fs-5" id="staticView">Are you sure this scheduled appointment done?</h2>
+                                                            <h2 class="modal-title fs-5" id="staticView">Do you want to delete this employee?</h2>
                                                         </div>
                                                         <div class="modal-body text-center">
                                                             <form method="post" action="#">
-                                                                <h5>This will be deleted from the list.</h5>
+                                                                <h5>This will be removed from the list.</h5>
                                                                 <input type="hidden" name="employee_id" value="<?php echo $row["ID"]; ?>">
                                                         </div>
                                                         <div class="modal-footer">
@@ -330,7 +337,7 @@ if (isset($_POST["delete"])) {
                                 </table>
                             </div>
                         </div>
-                        <div class="d-flex flex-column  align-items-center">
+                        <div class="d-flex  justify-content-center">
                             <a class="back" href="emplist.php" role="button">Back</a>
                         </div>
                     </div>

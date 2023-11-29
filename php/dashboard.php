@@ -68,10 +68,17 @@ $total = " ";
                                 <a class="nav-link" href="inquiries.php">Inquiries</a>
                             </nav>
                         </div>
-                        <a class="nav-link" href="#">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#project" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fa fa-file-contract"></i></div>
-                            Contract Project
+                            Project Contract
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
+                        <div class="collapse" id="project" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="projectList.php">Project Lists</a>
+                                <a class="nav-link" href="delivery.php">Materials Deliveries</a>
+                            </nav>
+                        </div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#team" aria-expanded="false" aria-controls="collapseLayouts">
                             <div class="sb-nav-link-icon"><i class="fas fa-people-group"></i></div>
                             Company Team
@@ -79,11 +86,10 @@ $total = " ";
                         </a>
                         <div class="collapse" id="team" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="emplist.php">Employee List</a>
-                                <a class="nav-link" href="#">Project Team </a>
+                                <a class="nav-link" href="emplist.php">Employee Lists</a>
+                                <a class="nav-link" href="teamList.php">Project Team </a>
                             </nav>
                         </div>
-
                     </div>
                 </div>
                 <div class="sb-sidenav-footer bg-logo1">
@@ -119,6 +125,13 @@ $total = " ";
                     $stmt = mysqli_prepare($conn, $query);
                     mysqli_stmt_execute($stmt);
                     mysqli_stmt_bind_result($stmt, $employees);
+                    mysqli_stmt_fetch($stmt);
+                    mysqli_stmt_close($stmt);
+
+                    $query = "SELECT COUNT(*) FROM `project` WHERE `status` = 'On-Going' ";
+                    $stmt = mysqli_prepare($conn, $query);
+                    mysqli_stmt_execute($stmt);
+                    mysqli_stmt_bind_result($stmt, $projects);
                     mysqli_stmt_fetch($stmt);
                     mysqli_stmt_close($stmt);
                     ?>
@@ -161,13 +174,13 @@ $total = " ";
                         <div class="col-xl-3 col-md-6">
                             <div class="card bg-logo2 text-white mb-4">
                                 <div class="card-header">
-                                    <h4>Contracts</h4>
+                                    <h4>Projects</h4>
                                 </div>
                                 <div class="card-body">
                                     <img src="../assets/images/contract.png" alt="" height="150px" width="170px">
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
-                                    <h5 class="my-0 mx-auto">Total:</h5>
+                                    <h5 class="my-0 mx-auto">Total: <?php echo $projects; ?></h5>
                                     <a class="small text-white stretched-link icons" href="#">
                                         <div class="small"><i class="fas fa-angle-right fa-xl stretched-link"></i></div>
                                     </a>
@@ -181,11 +194,11 @@ $total = " ";
                                     <h4>Employees</h4>
                                 </div>
                                 <div class="card-body">
-                                    <img src="../assets/images/arrange.png" alt="" height="150px" width="170px">
+                                    <img src="../assets/images/employees.png" alt="" height="150px" width="170px">
                                 </div>
                                 <div class="card-footer d-flex align-items-center justify-content-between">
                                     <h5 class="my-0 mx-auto">Total: <?php echo $employees; ?></h5>
-                                    <a class="small text-white stretched-link icons" href="#">
+                                    <a class="small text-white stretched-link icons" href="emplist.php">
                                         <div class="small"><i class="fas fa-angle-right fa-xl stretched-link"></i></div>
                                     </a>
                                 </div>
