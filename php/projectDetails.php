@@ -924,7 +924,10 @@ $projectType = $_GET['type'];
 
                         <div class="mb-3">
                             <label for="walls" class="col-form-label who">Walls & Enclosures:</label>
-                            <input type="number" class="form-control" id="walls" name="walls" min="0" max="100" value="<?php echo $row['walls']; ?>">
+                            <div class="input-group">
+                                <span class="input-group-text">%</span>
+                                <input type="number" class="form-control" id="walls" name="walls" min="0" max="100" value="<?php echo $row['walls']; ?>">
+                            </div>
                         </div>
 
                         <div class="mb-3">

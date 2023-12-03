@@ -132,6 +132,7 @@ if (!isset($_SESSION["ID"])) {
                                     $query = "SELECT * FROM `project` WHERE `status` = 'On-going'";
                                     $result = mysqli_query($conn, $query);
                                     while ($row = mysqli_fetch_array($result)) {
+
                                     ?>
                                         <tr>
                                             <td><?php echo $row['projectCode']; ?></td>
@@ -165,71 +166,71 @@ if (!isset($_SESSION["ID"])) {
 
                                                             <!-- Input for Concrete and Cement -->
                                                             <div class="mb-4">
-                                                                <label for="concrete">Concrete and Cement (in cubic meters/yards):</label>
-                                                                <input type="text" class="form-control" id="concrete" name="concrete" required autocomplete="off">
+                                                                <label>Concrete and Cement (in cubic meters/yards):</label>
+                                                                <input type="text" class="form-control concrete" name="concrete" required autocomplete="off">
                                                                 <div class="mt-2">
-                                                                    <input type="checkbox" id="concreteCheckbox" class="form-check-input">
-                                                                    <label for="concreteCheckbox" class="form-check-label">Check if None</label>
+                                                                    <input type="checkbox" class="form-check-input concreteCheckbox">
+                                                                    <label class="form-check-label">Check if None</label>
                                                                 </div>
                                                             </div>
 
                                                             <!-- Input for Lumber and Wood Products -->
                                                             <div class="mb-4">
-                                                                <label for="lumber">Lumber and Wood Products (size/pieces):</label>
-                                                                <input type="text" class="form-control" id="lumber" name="lumber" required autocomplete="off">
+                                                                <label>Lumber and Wood Products (size/pieces):</label>
+                                                                <input type="text" class="form-control lumber" name="lumber" required autocomplete="off">
                                                                 <div class="mt-2">
-                                                                    <input type="checkbox" id="lumberCheckbox" class="form-check-input">
-                                                                    <label for="lumberCheckbox" class="form-check-label">Check if None</label>
+                                                                    <input type="checkbox" class="form-check-input lumberCheckbox">
+                                                                    <label class="form-check-label">Check if None</label>
                                                                 </div>
                                                             </div>
 
-                                                            <!-- Input for Steel and Metal Products -->
+                                                            <!-- Input for Steel -->
                                                             <div class="mb-4">
-                                                                <label for="steel">Steel and Metal Products (in tons/lengths):</label>
-                                                                <input type="text" class="form-control" id="steel" name="steel" required autocomplete="off">
+                                                                <label>Steel and Metal Products (in tons/lengths):</label>
+                                                                <input type="text" class="form-control steel" name="steel" required autocomplete="off">
                                                                 <div class="mt-2">
-                                                                    <input type="checkbox" id="steelCheckbox" class="form-check-input">
-                                                                    <label for="steelCheckbox" class="form-check-label">Check if None</label>
+                                                                    <input type="checkbox" class="form-check-input steelCheckbox">
+                                                                    <label class="form-check-label">Check if None</label>
                                                                 </div>
                                                             </div>
 
                                                             <!-- Input for Aggregates -->
                                                             <div class="mb-4">
-                                                                <label for="aggregates">Aggregates (in tons):</label>
-                                                                <input type="text" class="form-control" id="aggregates" name="aggregates" required autocomplete="off">
+                                                                <label>Aggregates (in tons):</label>
+                                                                <input type="text" class="form-control aggregates" name="aggregates" required autocomplete="off">
                                                                 <div class="mt-2">
-                                                                    <input type="checkbox" id="aggregatesCheckbox" class="form-check-input">
-                                                                    <label for="aggregatesCheckbox" class="form-check-label">Check if None</label>
+                                                                    <input type="checkbox" class="form-check-input aggregatesCheckbox">
+                                                                    <label class="form-check-label">Check if None</label>
                                                                 </div>
                                                             </div>
 
                                                             <!-- Input for Bricks, Blocks, and Masonry Materials -->
                                                             <div class="mb-4">
-                                                                <label for="bricks">Bricks, Blocks, and Masonry Materials (number of units):</label>
-                                                                <input type="text" class="form-control" id="bricks" name="bricks" required autocomplete="off">
+                                                                <label>Bricks, Blocks, and Masonry Materials (number of units):</label>
+                                                                <input type="text" class="form-control bricks" name="bricks" required autocomplete="off">
                                                                 <div class="mt-2">
-                                                                    <input type="checkbox" id="bricksCheckbox" class="form-check-input">
-                                                                    <label for="bricksCheckbox" class="form-check-label">Check if None</label>
+                                                                    <input type="checkbox" class="form-check-input bricksCheckbox">
+                                                                    <label class="form-check-label">Check if None</label>
                                                                 </div>
                                                             </div>
 
                                                             <!-- Input for Roofing Materials -->
                                                             <div class="mb-4">
-                                                                <label for="roofing">Roofing Materials (number of units):</label>
-                                                                <input type="text" class="form-control" id="roofing" name="roofing" required autocomplete="off">
+                                                                <label>Roofing Materials (number of units):</label>
+                                                                <input type="text" class="form-control roofing" name="roofing" required autocomplete="off">
                                                                 <div class="mt-2">
-                                                                    <input type="checkbox" id="roofingCheckbox" class="form-check-input">
-                                                                    <label for="roofingCheckbox" class="form-check-label">Check if None</label>
+                                                                    <input type="checkbox" class="form-check-input roofingCheckbox">
+                                                                    <label class="form-check-label">Check if None</label>
                                                                 </div>
                                                             </div>
 
                                                             <!-- Input for Finishing Materials -->
                                                             <div class="mb-4">
-                                                                <label for="finishing">Finishing Materials (number of units):</label>
-                                                                <input type="text" class="form-control" id="finishing" name="finishing" required autocomplete="off">
+                                                                <label>Finishing Materials (number of units):</label>
+                                                                <input type="text" class="form-control finishing" name="finishing" required autocomplete="off">
                                                                 <div class="mt-2">
-                                                                    <input type="checkbox" id="finishingCheckbox" class="form-check-input">
-                                                                    <label for="finishingCheckbox" class="form-check-label">Check if None</label>
+                                                                    <input type="checkbox" class="form-check-input finishingCheckbox">
+                                                                    <label class="form-check-label">Check if None</label>
                                                                 </div>
                                                             </div>
 
@@ -286,28 +287,19 @@ if (!isset($_SESSION["ID"])) {
                 alert.remove();
             }
         }, 3500);
-    </script>
 
-    <script>
-        function handleCheckboxChange(checkboxId, inputId) {
-            document.getElementById(checkboxId).addEventListener('change', function() {
-                var input = document.getElementById(inputId);
-                input.disabled = this.checked;
-                if (this.checked) {
-                    input.value = "None";
-                } else {
-                    input.value = "";
-                }
+        function handleCheckboxChange() {
+            var checkboxes = document.querySelectorAll('.form-check-input');
+            checkboxes.forEach(function(checkbox) {
+                checkbox.addEventListener('change', function() {
+                    var input = this.parentElement.parentElement.querySelector('.form-control');
+                    input.disabled = this.checked;
+                    input.value = this.checked ? "None" : "";
+                });
             });
         }
 
-        handleCheckboxChange('concreteCheckbox', 'concrete');
-        handleCheckboxChange('lumberCheckbox', 'lumber');
-        handleCheckboxChange('steelCheckbox', 'steel');
-        handleCheckboxChange('aggregatesCheckbox', 'aggregates');
-        handleCheckboxChange('bricksCheckbox', 'bricks');
-        handleCheckboxChange('roofingCheckbox', 'roofing');
-        handleCheckboxChange('finishingCheckbox', 'finishing');
+        handleCheckboxChange();
     </script>
 
 </body>

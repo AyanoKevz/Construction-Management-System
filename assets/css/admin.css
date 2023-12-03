@@ -87,7 +87,7 @@ a {
 }
 
 .container-fluid .row {
-  height: 200vh;
+  height: 200%;
   margin: 0;
 }
 
@@ -100,7 +100,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2em;
+  padding: 1rem;
 }
 
 .banner .logo img {
@@ -121,7 +121,7 @@ a {
   2px 2px 0 black;
 }
 
-@media only screen and (max-width: 1350px) {
+@media only screen and (max-width: 1370px) {
   .banner h2 {
     font-size: 2.25rem;
   }
@@ -147,7 +147,7 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2em;
+  padding: 1rem;
 }
 
 .login h1 {
@@ -248,7 +248,7 @@ a {
 
 .footer{
   background-color: #2e3141;
-  padding: 1.25em;
+  padding: 1rem;
 }
 
 .footer .footer-container{

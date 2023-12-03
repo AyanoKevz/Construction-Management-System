@@ -8,8 +8,6 @@ if (isset($_SESSION["ID"])) {
   exit();
 }
 
-
-
 ?>
 
 <!DOCTYPE html>
@@ -26,9 +24,8 @@ if (isset($_SESSION["ID"])) {
 
 <body>
 
-
-
   <div class="container-fluid">
+
     <div class="row">
 
       <div class="banner">

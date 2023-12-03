@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 29, 2023 at 03:11 PM
+-- Generation Time: Dec 03, 2023 at 08:27 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -69,38 +69,38 @@ INSERT INTO `employee` (`ID`, `teamID`, `fname`, `lname`, `number`, `gender`, `p
 (2, 1, 'Mark', 'Zucker', '09949494946', 'Male', 'Worker', '../assets/images/no_img.jpg'),
 (3, 1, 'Jared', 'Dillinger', '09594640643', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
 (4, 1, 'Gerald', 'Underscore', '09594456464', 'Male', 'Worker', '../assets/images/no_img.jpg'),
-(5, 1, 'Coco', 'Maja', '09894949405', 'Male', 'Worker', '../assets/images/no_img.jpg'),
-(6, 1, 'Sam', 'Misth', '08948440949', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(5, 2, 'Coco', 'Maja', '09894949405', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(6, 2, 'Sam', 'Misth', '08948440949', 'Male', 'Worker', '../assets/images/no_img.jpg'),
 (7, 1, 'Ryan ', 'Owen', '09942549529', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
 (8, NULL, 'Alyanna', 'Sibal', '09949494949', 'Female', 'Human Resource', '../assets/images/no_img.jpg'),
 (9, NULL, 'Ralf', 'Ureta', '09907979041', 'Male', 'Human Resource', '../assets/images/no_img.jpg'),
 (10, 2, 'Joshua', 'Langmis', '09095495095', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
 (11, NULL, 'Ivana', 'Mulawin', '09594064644', 'Female', 'Human Resource', '../assets/images/no_img.jpg'),
 (12, 2, 'Kevin', 'Caezar', '09987165010', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
-(13, 4, 'Tyler', 'Bey', '09984651616', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
+(13, NULL, 'Tyler', 'Bey', '09984651616', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
 (14, NULL, 'Jun', 'Ramos', '09080446131', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
 (15, 2, 'Jhong', 'Hillario', '09589449494', 'Male', 'Worker', '../assets/images/no_img.jpg'),
 (16, 2, 'Donny', 'Narcos', '09898090449', 'Male', 'Worker', '../assets/images/no_img.jpg'),
 (17, NULL, 'Mariel', 'Santos', '09097644646', 'Female', 'Human Resource', '../assets/images/no_img.jpg'),
 (18, 2, 'Bryan', 'Aguilar', '09744946464', 'Male', 'Worker', '../assets/images/no_img.jpg'),
-(19, 3, 'Justin', 'Lee', '09789498409', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
+(19, NULL, 'Justin', 'Lee', '09789498409', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
 (20, NULL, 'Katrina', 'Almarez', '09979749904', 'Female', 'Engineer', '../assets/images/no_img.jpg'),
 (21, NULL, 'Jonathan', 'Kuminga', '09794949494', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
 (22, NULL, 'Sandra', 'Marcas', '09494944949', 'Female', 'Human Resource', '../assets/images/no_img.jpg'),
 (23, NULL, 'Christian', 'Mercado', '09589089979', 'Male', 'Human Resource', '../assets/images/no_img.jpg'),
-(24, 3, 'Nelson', 'Guimbao', '09859094949', 'Male', 'Worker', '../assets/images/no_img.jpg'),
-(25, 3, 'Nardo', 'Putin', '09565549646', 'Male', 'Worker', '../assets/images/no_img.jpg'),
-(26, 3, 'Eren', 'Yeager', '09494640616', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
+(24, NULL, 'Nelson', 'Guimbao', '09859094949', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(25, NULL, 'Nardo', 'Putin', '09565549646', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(26, NULL, 'Eren', 'Yeager', '09494640616', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
 (27, NULL, 'Chris', 'Newsome', '09594090979', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
 (28, NULL, 'Alex', 'Mewing', '09879494094', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
 (29, NULL, 'Marco', 'Gumabao', '09940904940', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
 (30, NULL, 'Juan', 'Tuna', '09894940904', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
 (31, NULL, 'Jerry', 'Galinato', '09094949409', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
-(32, 3, 'David', 'Nagiba', '09890490494', 'Male', 'Worker', '../assets/images/no_img.jpg'),
-(33, 3, 'Joseph', 'Ilao', '09979090494', 'Male', 'Worker', '../assets/images/no_img.jpg'),
-(34, 3, 'Jason', 'Dela Cruz', '09797797979', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(32, NULL, 'David', 'Nagiba', '09890490494', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(33, NULL, 'Joseph', 'Ilao', '09979090494', 'Male', 'Worker', '../assets/images/no_img.jpg'),
+(34, NULL, 'Jason', 'Dela Cruz', '09797797979', 'Male', 'Worker', '../assets/images/no_img.jpg'),
 (35, NULL, 'Diexter', 'Goto', '09451874230', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
-(36, 4, 'Gian', 'Conception', '09048451518', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
+(36, NULL, 'Gian', 'Conception', '09048451518', 'Male', 'Engineer', '../assets/images/no_img.jpg'),
 (37, NULL, 'Justine', 'Balboa', '09590494040', 'Male', 'Worker', '../assets/images/no_img.jpg'),
 (38, NULL, 'Zaki', 'Mcario', '09453842064', 'Male', 'Foreman', '../assets/images/no_img.jpg'),
 (39, NULL, 'Bianca', 'Gomez', '09561564879', 'Female', 'Engineer', '../assets/images/no_img.jpg'),
@@ -135,6 +135,13 @@ CREATE TABLE `hauling transport` (
   `updateDate` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `hauling transport`
+--
+
+INSERT INTO `hauling transport` (`ID`, `projectID`, `removal`, `transport`, `pic1`, `pic2`, `pic3`, `pic4`, `pic5`, `updateDate`) VALUES
+(1, 2, 0, 0, '../assets/images/default_house.jpg', '../assets/images/default_house.jpg', '../assets/images/default_house.jpg', '../assets/images/default_house.jpg', '../assets/images/default_house.jpg', '2023-12-01');
+
 -- --------------------------------------------------------
 
 --
@@ -156,6 +163,13 @@ CREATE TABLE `house/building` (
   `pic5` varchar(255) NOT NULL,
   `updateDate` date DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `house/building`
+--
+
+INSERT INTO `house/building` (`ID`, `projectID`, `foundation`, `structure`, `exterior`, `interior`, `utilities`, `pic1`, `pic2`, `pic3`, `pic4`, `pic5`, `updateDate`) VALUES
+(1, 1, 0, 0, 0, 0, 0, '../assets/images/default_house.jpg', '../assets/images/default_house.jpg', '../assets/images/default_house.jpg', '../assets/images/default_house.jpg', '../assets/images/default_house.jpg', '2023-12-01');
 
 -- --------------------------------------------------------
 
@@ -196,6 +210,15 @@ CREATE TABLE `materials` (
   `deliTime` time NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `materials`
+--
+
+INSERT INTO `materials` (`ID`, `projectID`, `concrete`, `lumber`, `steel`, `aggregates`, `bricks`, `roofing`, `finishing`, `deliDate`, `deliTime`) VALUES
+(1, 1, 'try', 'try', 'None', 'None', 'None', 'None', 'None', '2023-12-02', '21:26:00'),
+(2, 2, 'None', 'None', 'None', 'None', 'None', 'None', 'None', '2023-12-02', '22:08:00'),
+(3, 1, 'None', 'None', 'None', 'None', 'None', 'None', 'None', '2023-12-02', '22:09:00');
+
 -- --------------------------------------------------------
 
 --
@@ -214,6 +237,14 @@ CREATE TABLE `project` (
   `deadline` date NOT NULL DEFAULT current_timestamp(),
   `status` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`ID`, `teamID`, `projectCode`, `projectType`, `projectName`, `cost`, `location`, `startingDate`, `deadline`, `status`) VALUES
+(1, 1, 'ROS-474354', 'House/Building', 'House of Collab', '1,200,000', 'Quezon City', '2023-12-22', '2023-12-01', 'On-Going'),
+(2, 2, 'ROS-443553', 'Hauling Transport', 'Bridge Hauling', '50000', 'Caloocan', '2023-12-02', '2023-12-03', 'On-Going');
 
 -- --------------------------------------------------------
 
@@ -283,10 +314,8 @@ CREATE TABLE `team` (
 --
 
 INSERT INTO `team` (`ID`, `teamName`, `projectID`) VALUES
-(1, 'WeCare', NULL),
-(2, 'Team-Action', NULL),
-(3, 'Team-Perfomance', NULL),
-(4, 'Reforma', NULL);
+(1, 'Iqor', 1),
+(2, 'TeamAction', 2);
 
 --
 -- Indexes for dumped tables
@@ -366,7 +395,7 @@ ALTER TABLE `team`
 -- AUTO_INCREMENT for table `covered court`
 --
 ALTER TABLE `covered court`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `employee`
@@ -378,13 +407,13 @@ ALTER TABLE `employee`
 -- AUTO_INCREMENT for table `hauling transport`
 --
 ALTER TABLE `hauling transport`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `house/building`
 --
 ALTER TABLE `house/building`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `login`
@@ -402,31 +431,31 @@ ALTER TABLE `materials`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `req_appoint`
 --
 ALTER TABLE `req_appoint`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `road/highway`
 --
 ALTER TABLE `road/highway`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `team`
 --
 ALTER TABLE `team`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

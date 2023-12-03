@@ -125,7 +125,7 @@ include 'request.php'
 						</div>
 						<div class="field">
 							<label for="email">Contact Number</label>
-							<input type="text" name="number" id="number" autocomplete="off" required="on" placeholder="<?php echo $contact_error; ?>">
+							<input type="text" name="number" id="number" autocomplete="off" required="on" placeholder="<?php echo $contact_error; ?>" max="11" maxlength="11">
 						</div>
 						<div class="field">
 							<label for="email">Email</label>

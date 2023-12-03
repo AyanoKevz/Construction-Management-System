@@ -27,8 +27,8 @@ if (isset($_POST["set"])) {
     $delete_stmt = mysqli_prepare($conn, $delete_query);
     mysqli_stmt_bind_param($delete_stmt, "s", $contact);
     if (mysqli_stmt_execute($delete_stmt)) {
-
       $accept = "The appointment scheduled has been successfully set.";
+
       //Server settings
       $mail = new PHPMailer(true);
       $mail->isSMTP();
@@ -46,7 +46,20 @@ if (isset($_POST["set"])) {
       //Content
       $mail->isHTML(true);
       $mail->Subject = 'Appointment Scheduled';
-      $mail->Body = "Good Day, " . $name . ". We received your message, and your appointment has been scheduled for " . $date . " at " . $time . ". Thank you!";
+      $mail->Body = "
+      <html>
+      <head>
+          <title>Your Appointment</title>
+      </head>
+      <body>
+          <p>Dear <strong>$name</strong>,</p>
+          <p>Thank you for reaching out to R.O.Salas Construction.</p>
+          <p>We have successfully scheduled your appointment for <strong>$date at $time</strong>.</p>
+          <p>If you have any questions or need to make changes, please don't hesitate to contact us.</p>
+          <p>Best Regards,<br><strong>R.O.Salas Construction Team</strong></p>
+      </body>
+      </html>
+  ";
       $mail->send();
       header("Location: appointment.php?message=" . urlencode($accept));
     }
@@ -63,7 +76,7 @@ if (isset($_POST["reject"])) {
   mysqli_stmt_bind_param($stmt, "i", $id);
 
   if (mysqli_stmt_execute($stmt)) {
-    $reject = "The inquiry was successfully deleted from the list.";
+    $reject = "The inquiry was successfully has been rejected.";
 
     //Server settings
     $mail = new PHPMailer(true);
@@ -81,8 +94,22 @@ if (isset($_POST["reject"])) {
 
     //Content
     $mail->isHTML(true);
-    $mail->Subject = 'Sorry For Inconvinient';
-    $mail->Body = "Good Day, " . $name . ". We received your message, and we are sorry to tell you that we cannot set you an appointment as our company is fully scheduled right now. Kindly reply to this email if you have a preferred date, and we will talk about it. Thank you!";
+    $mail->Subject = 'Sorry For Inconvenience';
+    $mail->Body = "
+        <html>
+        <head>
+            <title>Apology for Inconvenience</title>
+        </head>
+        <body>
+            <p>Good Day, <strong>$name</strong>,</p>
+            <p>We sincerely appreciate your interest in R.O.Salas Construction.</p>
+            <p>Regrettably, due to our current high demand, we are unable to accommodate additional appointments at this time. We understand the inconvenience this may cause and apologize for any disappointment.</p>
+            <p>Please reply to this email with your preferred date, and we'll make every effort to accommodate your schedule. Your satisfaction is important to us, and we want to ensure we find a suitable arrangement.</p>
+            <p>Thank you for your understanding and patience.</p>
+            <p>Best Regards,<br><strong>R.O.Salas Construction Team</strong></p>
+        </body>
+        </html>
+    ";
     $mail->send();
   }
 }
