@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2023 at 07:17 PM
+-- Generation Time: Dec 06, 2023 at 04:50 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -320,8 +320,7 @@ ALTER TABLE `login`
 -- Indexes for table `materials`
 --
 ALTER TABLE `materials`
-  ADD PRIMARY KEY (`ID`),
-  ADD KEY `materialProjecID` (`projectID`);
+  ADD PRIMARY KEY (`ID`);
 
 --
 -- Indexes for table `project`
@@ -400,7 +399,7 @@ ALTER TABLE `materials`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `req_appoint`
@@ -453,18 +452,6 @@ ALTER TABLE `hauling transport`
 --
 ALTER TABLE `house/building`
   ADD CONSTRAINT `houseProjectID` FOREIGN KEY (`projectID`) REFERENCES `project` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `materials`
---
-ALTER TABLE `materials`
-  ADD CONSTRAINT `materialProjecID` FOREIGN KEY (`projectID`) REFERENCES `project` (`ID`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Constraints for table `project`
---
-ALTER TABLE `project`
-  ADD CONSTRAINT `projectTeamID` FOREIGN KEY (`teamID`) REFERENCES `team` (`ID`);
 
 --
 -- Constraints for table `road/highway`

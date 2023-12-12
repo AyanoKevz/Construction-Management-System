@@ -245,13 +245,13 @@ if (isset($_POST["finish"])) {
                             <label for="projectCode" class="col-form-label">Project Code:</label>
                             <div class="input-group">
                                 <span class="input-group-text">ROS-</span>
-                                <input type="text" class="form-control" id="projectCode" name="projectCode" autocomplete="off" required="on" maxlength="6">
+                                <input type="text" class="form-control" id="projectCode" name="projectCode" autocomplete="off" required maxlength="6">
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="projectType" class="col-form-label">Project Type:</label>
-                            <select name="projectType" class="form-select" aria-label="Default select example">
+                            <select name="projectType" class="form-select" aria-label="Default select example" required>
                                 <option selected disabled>Select Project Type</option>
                                 <option>House/Building</option>
                                 <option>Road/Highway</option>
@@ -262,35 +262,35 @@ if (isset($_POST["finish"])) {
 
                         <div class="mb-3">
                             <label for="projectName" class="col-form-label">Project Name:</label>
-                            <input type="text" class="form-control" id="projectName" name="projectName" autocomplete="off" required="on">
+                            <input type="text" class="form-control" id="projectName" name="projectName" autocomplete="off" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="projectCost" class="col-form-label">Project Cost:</label>
                             <div class="input-group">
                                 <span class="input-group-text">₱</span>
-                                <input type="text" class="form-control" id="projectCost" name="projectCost" autocomplete="off" required="on">
+                                <input type="text" class="form-control" id="projectCost" name="projectCost" autocomplete="off" required>
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="location" class="col-form-label">Location:</label>
-                            <input type="text" class="form-control" id="location" name="location" autocomplete="off" required="on">
+                            <input type="text" class="form-control" id="location" name="location" autocomplete="off" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="startDate" class="col-form-label who">Start Date:</label>
-                            <input type="date" class="form-control" id="startDate" name="startDate">
+                            <input type="date" class="form-control" id="startDate" name="startDate" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="deadline" class="col-form-label who">Deadline:</label>
-                            <input type="date" class="form-control" id="deadline" name="deadline">
+                            <input type="date" class="form-control" id="deadline" name="deadline" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="team" class="col-form-label">Select Team:</label>
-                            <select name="team" class="form-select" aria-label="Default select example">
+                            <select name="team" class="form-select" aria-label="Default select example" required>
                                 <option selected disabled>Select Team</option>
                                 <?php
                                 while ($row = mysqli_fetch_array($result)) {

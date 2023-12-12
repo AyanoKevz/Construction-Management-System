@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2023 at 06:51 PM
+-- Generation Time: Dec 06, 2023 at 04:46 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -292,7 +292,8 @@ ALTER TABLE `covered court`
 -- Indexes for table `employee`
 --
 ALTER TABLE `employee`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `employeeTeamID` (`teamID`);
 
 --
 -- Indexes for table `hauling transport`
@@ -322,7 +323,8 @@ ALTER TABLE `materials`
 -- Indexes for table `project`
 --
 ALTER TABLE `project`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `projectTeamID` (`teamID`);
 
 --
 -- Indexes for table `req_appoint`
@@ -392,7 +394,7 @@ ALTER TABLE `materials`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `req_appoint`
@@ -417,6 +419,16 @@ ALTER TABLE `schedule`
 --
 ALTER TABLE `team`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `employee`
+--
+ALTER TABLE `employee`
+  ADD CONSTRAINT `employeeTeamID` FOREIGN KEY (`teamID`) REFERENCES `team` (`ID`) ON DELETE SET NULL ON UPDATE SET NULL;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
