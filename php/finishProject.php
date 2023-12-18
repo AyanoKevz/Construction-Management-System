@@ -142,7 +142,7 @@ if (isset($_POST["delete"])) {
                     <ol class="breadcrumb mb-1">
                         <li class="breadcrumb-item active"></li>
                     </ol>
-                    <h1 class="mt-3 mb-4">Finished Project List</h1>
+                    <h1 class="mt-3 mb-4">Finished Projects</h1>
 
                     <div class="d-flex justify-content-between mx-1">
                         <a href="projectList.php" class="add-btn p-2">
