@@ -148,9 +148,6 @@ if (isset($_POST["delete"])) {
                         <a href="projectList.php" class="add-btn p-2">
                             <i class="fa-solid fa-list fa-sm me-2" style="color: #ffffff;"></i>Project List
                         </a>
-                        <button type="button" class="add-btn p-2" data-bs-toggle="modal" data-bs-target="#createProject">
-                            <i class="fas fa-plus fa-sm" style="color: #ffffff;"></i> Create Project
-                        </button>
                     </div>
 
                     <div class="card mb-4">
